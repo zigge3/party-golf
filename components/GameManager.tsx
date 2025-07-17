@@ -48,7 +48,8 @@ export default function GameManager() {
       currentHole: 1,
       totalHoles: 18,
       isGameActive: false,
-      currentLeader: undefined
+      currentLeader: undefined,
+      phase: 'setup'
     })
     setPlayers([])
     setPenalties([])
