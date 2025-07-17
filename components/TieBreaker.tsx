@@ -5,8 +5,8 @@ import { Player } from '@/lib/atoms'
 import { theme } from '@/lib/theme'
 
 const colors = [
-  '#16a34a', '#dc2626', '#2563eb', '#d97706', 
-  '#9333ea', '#0891b2', '#be123c', '#7c2d12'
+  '#10b981', '#f59e0b', '#8b5cf6', '#06b6d4',
+  '#ef4444', '#f97316', '#ec4899', '#84cc16'
 ]
 
 interface TieBreakerProps {
@@ -74,17 +74,24 @@ export default function TieBreaker({ tiedPlayers, onPlayerSelected }: TieBreaker
 
       {/* Simple Player Selection Display */}
       <div className="relative">
-        <div className="flex flex-wrap justify-center gap-3 p-4 bg-gray-100 rounded-lg">
+        <div className="flex flex-wrap justify-center gap-3 p-6 rounded-xl" style={{
+          background: 'linear-gradient(135deg, #1f2937 0%, #374151 100%)',
+          border: '1px solid #10b981',
+          boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.4), 0 10px 10px -5px rgb(0 0 0 / 0.2)'
+        }}>
           {tiedPlayers.map((player, index) => (
             <div
               key={player.id}
-              className={`px-4 py-3 rounded-lg text-center text-white font-bold transition-all duration-200 min-w-[80px] ${
+              className={`px-4 py-3 rounded-xl text-center text-white font-bold transition-all duration-300 min-w-[80px] ${
                 index === currentIndex && isSpinning ? 'scale-110 shadow-lg' : ''
               }`}
               style={{
-                backgroundColor: colors[index % colors.length],
+                background: `linear-gradient(135deg, ${colors[index % colors.length]} 0%, ${colors[index % colors.length]}dd 100%)`,
                 transform: index === currentIndex && isSpinning ? 'scale(1.1)' : 'scale(1)',
-                boxShadow: index === currentIndex && isSpinning ? '0 4px 8px rgba(0,0,0,0.3)' : 'none'
+                boxShadow: index === currentIndex && isSpinning ? 
+                  `0 10px 20px rgba(0,0,0,0.4), 0 0 30px ${colors[index % colors.length]}40` : 
+                  `0 4px 6px rgba(0,0,0,0.2)`,
+                border: index === currentIndex && isSpinning ? `2px solid ${colors[index % colors.length]}` : 'none'
               }}
             >
               {player.name}

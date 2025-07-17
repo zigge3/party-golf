@@ -20,7 +20,7 @@ export default function Scoreboard() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold text-center" style={{ color: theme.colors.neutral[800] }}>
+      <h2 className="text-xl font-bold text-center" style={{ color: theme.colors.neutral[900] }}>
         Resultattavla
       </h2>
       
@@ -34,16 +34,16 @@ export default function Scoreboard() {
         <table className="w-full">
           <thead style={{ backgroundColor: theme.components.scoreboard.header }}>
             <tr>
-              <th className="px-4 py-2 text-left" style={{ color: theme.colors.neutral[700] }}>
+              <th className="px-4 py-2 text-left" style={{ color: theme.colors.neutral[600] }}>
                 Placering
               </th>
-              <th className="px-4 py-2 text-left" style={{ color: theme.colors.neutral[700] }}>
+              <th className="px-4 py-2 text-left" style={{ color: theme.colors.neutral[600] }}>
                 Spelare
               </th>
-              <th className="px-4 py-2 text-center" style={{ color: theme.colors.neutral[700] }}>
+              <th className="px-4 py-2 text-center" style={{ color: theme.colors.neutral[600] }}>
                 Totalt
               </th>
-              <th className="px-4 py-2 text-center" style={{ color: theme.colors.neutral[700] }}>
+              <th className="px-4 py-2 text-center" style={{ color: theme.colors.neutral[600] }}>
                 Hål
               </th>
             </tr>
@@ -74,7 +74,7 @@ export default function Scoreboard() {
                 >
                   <td className="px-4 py-2">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold" style={{ color: theme.colors.neutral[800] }}>
+                      <span className="font-semibold" style={{ color: theme.colors.neutral[900] }}>
                         #{index + 1}
                       </span>
                       {isLeader && (
@@ -84,10 +84,10 @@ export default function Scoreboard() {
                       )}
                     </div>
                   </td>
-                  <td className="px-4 py-2 font-medium" style={{ color: theme.colors.neutral[800] }}>
+                  <td className="px-4 py-2 font-medium" style={{ color: theme.colors.neutral[900] }}>
                     {player.name}
                   </td>
-                  <td className="px-4 py-2 text-center font-bold" style={{ color: theme.colors.neutral[800] }}>
+                  <td className="px-4 py-2 text-center font-bold" style={{ color: theme.colors.neutral[900] }}>
                     {player.totalStrokes || 0}
                   </td>
                   <td className="px-4 py-2 text-center text-sm" style={{ color: theme.colors.neutral[600] }}>
@@ -102,20 +102,23 @@ export default function Scoreboard() {
 
       <div 
         className="p-4 rounded-lg"
-        style={{ backgroundColor: theme.colors.blue[50] }}
+        style={{ 
+          backgroundColor: theme.components.card.background,
+          border: '1px solid #374151'
+        }}
       >
-        <h3 className="font-semibold mb-2" style={{ color: theme.colors.neutral[800] }}>
+        <h3 className="font-semibold mb-2" style={{ color: theme.colors.neutral[900] }}>
           Hål-för-hål resultat
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr>
-                <th className="px-2 py-1 text-left" style={{ color: theme.colors.neutral[700] }}>
+                <th className="px-2 py-1 text-left" style={{ color: theme.colors.neutral[600] }}>
                   Spelare
                 </th>
                 {Array.from({ length: gameState.currentHole }, (_, i) => (
-                  <th key={i} className="px-2 py-1 text-center w-8" style={{ color: theme.colors.neutral[700] }}>
+                  <th key={i} className="px-2 py-1 text-center w-8" style={{ color: theme.colors.neutral[600] }}>
                     {i + 1}
                   </th>
                 ))}
@@ -124,7 +127,7 @@ export default function Scoreboard() {
             <tbody>
               {players.map(player => (
                 <tr key={player.id}>
-                  <td className="px-2 py-1 font-medium" style={{ color: theme.colors.neutral[800] }}>
+                  <td className="px-2 py-1 font-medium" style={{ color: theme.colors.neutral[900] }}>
                     {player.name}
                   </td>
                   {Array.from({ length: gameState.currentHole }, (_, i) => (

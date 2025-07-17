@@ -36,17 +36,18 @@ export const theme = {
       800: '#991b1b',
       900: '#7f1d1d',
     },
+    // New dark theme colors
     neutral: {
-      50: '#fafafa',
-      100: '#f5f5f5',
-      200: '#e5e5e5',
-      300: '#d4d4d4',
-      400: '#a3a3a3',
-      500: '#737373',
-      600: '#525252',
-      700: '#404040',
-      800: '#262626',
-      900: '#171717',
+      50: '#18181b',
+      100: '#27272a',
+      200: '#3f3f46',
+      300: '#52525b',
+      400: '#71717a',
+      500: '#a1a1aa',
+      600: '#d4d4d8',
+      700: '#e4e4e7',
+      800: '#f4f4f5',
+      900: '#fafafa',
     },
     blue: {
       50: '#eff6ff',
@@ -74,95 +75,95 @@ export const theme = {
     }
   },
   
-  // Golf-themed wheel colors with high contrast
+  // Golf-themed wheel colors with high contrast and neon vibes
   wheelColors: [
-    '#16a34a', // Green 600
-    '#dc2626', // Red 600
-    '#2563eb', // Blue 600
-    '#d97706', // Orange 600
-    '#9333ea', // Purple 600
-    '#0891b2', // Cyan 600
-    '#be123c', // Rose 600
-    '#7c2d12', // Orange 800
+    '#10b981', // Emerald 500
+    '#f59e0b', // Amber 500
+    '#8b5cf6', // Violet 500
+    '#06b6d4', // Cyan 500
+    '#ef4444', // Red 500
+    '#f97316', // Orange 500
+    '#ec4899', // Pink 500
+    '#84cc16', // Lime 500
   ],
   
-  // Semantic colors
+  // Semantic colors with neon accents
   semantic: {
-    success: '#22c55e',
+    success: '#10b981',
     warning: '#f59e0b',
     error: '#ef4444',
-    info: '#3b82f6',
+    info: '#06b6d4',
     
     // High contrast versions
     successContrast: '#ffffff',
-    warningContrast: '#ffffff',
+    warningContrast: '#000000',
     errorContrast: '#ffffff',
     infoContrast: '#ffffff',
   },
   
-  // Component specific colors
+  // Component specific colors - Dark theme
   components: {
     card: {
-      background: '#ffffff',
-      border: '#e5e5e5',
-      shadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+      background: '#1f2937',
+      border: '#374151',
+      shadow: '0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -2px rgb(0 0 0 / 0.1)',
     },
     button: {
       primary: {
-        background: '#16a34a',
-        backgroundHover: '#15803d',
+        background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+        backgroundHover: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
         text: '#ffffff',
-        border: '#16a34a',
+        border: '#22c55e',
       },
       secondary: {
-        background: '#f5f5f5',
-        backgroundHover: '#e5e5e5',
-        text: '#404040',
-        border: '#d4d4d4',
+        background: 'linear-gradient(135deg, #a855f7 0%, #9333ea 100%)',
+        backgroundHover: 'linear-gradient(135deg, #9333ea 0%, #7c3aed 100%)',
+        text: '#ffffff',
+        border: '#a855f7',
       },
       accent: {
-        background: '#ef4444',
-        backgroundHover: '#dc2626',
+        background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+        backgroundHover: 'linear-gradient(135deg, #d97706 0%, #b45309 100%)',
         text: '#ffffff',
-        border: '#ef4444',
+        border: '#f59e0b',
       },
       warning: {
-        background: '#f59e0b',
-        backgroundHover: '#d97706',
+        background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+        backgroundHover: 'linear-gradient(135deg, #d97706 0%, #b45309 100%)',
         text: '#ffffff',
         border: '#f59e0b',
       },
       info: {
-        background: '#3b82f6',
-        backgroundHover: '#2563eb',
+        background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
+        backgroundHover: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
         text: '#ffffff',
-        border: '#3b82f6',
+        border: '#0ea5e9',
       },
     },
     input: {
-      background: '#ffffff',
-      border: '#d4d4d4',
-      borderFocus: '#16a34a',
-      text: '#171717',
-      placeholder: '#737373',
+      background: '#374151',
+      border: '#4b5563',
+      borderFocus: '#10b981',
+      text: '#e5e7eb',
+      placeholder: '#9ca3af',
     },
     scoreboard: {
-      header: '#f5f5f5',
-      leader: '#f0fdf4',
-      leaderBorder: '#bbf7d0',
-      row: '#ffffff',
-      rowHover: '#fafafa',
+      header: '#374151',
+      leader: '#065f46',
+      leaderBorder: '#10b981',
+      row: '#1f2937',
+      rowHover: '#374151',
     },
     penalty: {
-      active: '#fef2f2',
-      activeBorder: '#fecaca',
-      activeText: '#991b1b',
-      shot: '#fef3c7',
-      shotBorder: '#fde68a',
-      hole: '#eff6ff',
-      holeBorder: '#bfdbfe',
-      persistent: '#faf5ff',
-      persistentBorder: '#e9d5ff',
+      active: '#1e293b',
+      activeBorder: '#ef4444',
+      activeText: '#f87171',
+      shot: '#1e1b4b',
+      shotBorder: '#8b5cf6',
+      hole: '#164e63',
+      holeBorder: '#06b6d4',
+      persistent: '#4c1d95',
+      persistentBorder: '#a855f7',
     }
   }
 }
