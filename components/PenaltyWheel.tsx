@@ -32,25 +32,104 @@ const defaultPenalties: Omit<Penalty, "id" | "isActive" | "targetPlayerId">[] =
     {
       title: "Klacka",
       description:
-        "Du väljer en valfri spelare som måste klacka på nästa utspark",
+        "Du väljer en valfri spelare som måste klacka på nästa spark",
       type: "shot",
     },
     {
       title: "Finsk fylla",
       description:
-        "Finsk fylla (snurra 15 varv) på två valfri spelare vid utspark",
+        "Finsk fylla (snurra 15 varv) på två valfri spelare vid utslag",
       type: "shot",
+    },
+    {
+      title: "Blinda ögon",
+      description: "Du måste sparka med slutna ögon på nästa spark",
+      type: "shot",
+    },
+    {
+      title: "Hoppa ett ben",
+      description: "Du måste hoppa på ett ben när du sparkar nästa gång",
+      type: "shot",
+    },
+    {
+      title: "Sjung joppe",
+      description: "Du måste sjunga under nästa utspark",
+      type: "shot",
+    },
+    {
+      title: "Endast insida",
+      description: "Du får bara sparka med insidan av foten detta hål",
+      type: "hole",
+    },
+    {
+      title: "Inga våldsamme",
+      description: "Bollen får inte lämna marken på nästa hål",
+      type: "hole",
+    },
+    {
+      title: "Tystnad",
+      description: "Du får inte prata förrän nästa hål är klart",
+      type: "hole",
+    },
+    {
+      title: "Extra spark",
+      description: "Du måste ta en extra spark på nästa hål",
+      type: "hole",
+    },
+    {
+      title: "Endast tå",
+      description: "Du får bara sparka med tån på nästa spark",
+      type: "shot",
+    },
+    {
+      title: "Händer bakom rygg",
+      description: "Du måste ha händerna bakom ryggen när du sparkar detta hål",
+      type: "hole",
+    },
+    {
+      title: "Indianen",
+      description: "Du måste sitta ner när du sparkar nästa gång",
+      type: "shot",
+    },
+    {
+      title: "Slow motion",
+      description: "Du måste sparka extremt långsamt på nästa spark",
+      type: "shot",
+    },
+    {
+      title: "Armarna upp",
+      description:
+        "Du måste hålla armarna upp i luften när du sparkar nästa hål",
+      type: "hole",
     },
   ];
 
 const colors = [
-  "#10b981",
-  "#f59e0b",
-  "#8b5cf6",
-  "#06b6d4",
-  "#ef4444",
-  "#f97316",
-  "#ec4899",
+  "#10b981", // Emerald
+  "#f59e0b", // Amber
+  "#8b5cf6", // Violet
+  "#06b6d4", // Cyan
+  "#ef4444", // Red
+  "#f97316", // Orange
+  "#ec4899", // Pink
+  "#84cc16", // Lime
+  "#3b82f6", // Blue
+  "#f43f5e", // Rose
+  "#a855f7", // Purple
+  "#059669", // Emerald-600
+  "#d97706", // Amber-600
+  "#7c3aed", // Violet-600
+  "#0891b2", // Cyan-600
+  "#dc2626", // Red-600
+  "#ea580c", // Orange-600
+  "#22c55e", // Green-500
+  "#eab308", // Yellow-500
+  "#6366f1", // Indigo-500
+  "#14b8a6", // Teal-500
+  "#f97316", // Orange-500
+  "#e11d48", // Rose-600
+  "#8b5cf6", // Violet-500
+  "#06b6d4", // Cyan-500
 ];
 
 interface PenaltyWheelProps {
@@ -120,7 +199,7 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
       {/* Simple Visual Wheel */}
       <div className="relative">
         <div
-          className="grid grid-cols-2 gap-3 p-6 rounded-xl max-w-lg"
+          className="grid grid-cols-3 gap-2 p-6 rounded-xl max-w-4xl"
           style={{
             background: "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
             border: "1px solid #10b981",
