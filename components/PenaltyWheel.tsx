@@ -141,12 +141,16 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
   const [players] = useAtom(playersAtom);
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedPenalty, setSelectedPenalty] = useState<Penalty | null>(null);
+  const [selectedPenaltyIndex, setSelectedPenaltyIndex] = useState<
+    number | null
+  >(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationSpeed, setAnimationSpeed] = useState(100);
 
   const spinWheel = () => {
     setIsSpinning(true);
     setSelectedPenalty(null);
+    setSelectedPenaltyIndex(null);
     setAnimationSpeed(100);
 
     let cycles = 0;
@@ -175,6 +179,7 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
 
         setPenalties((prev) => [...prev, newPenalty]);
         setSelectedPenalty(newPenalty);
+        setSelectedPenaltyIndex(currentIndex);
         setIsSpinning(false);
         onPenaltySelected?.(newPenalty);
         return;
@@ -185,7 +190,7 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
       const currentSpeed = 100 + 200 * slowdownFactor;
 
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % defaultPenalties.length);
+        setCurrentIndex(Math.floor(Math.random() * defaultPenalties.length));
         cycles++;
         animate();
       }, currentSpeed);
@@ -211,22 +216,26 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
             <div
               key={index}
               className={`p-4 rounded-xl text-center text-white font-bold text-sm transition-all duration-300 ${
-                index === currentIndex && isSpinning
+                index === currentIndex &&
+                (isSpinning || selectedPenaltyIndex === index)
                   ? "scale-110 shadow-lg"
                   : ""
               }`}
               style={{
                 background: `linear-gradient(135deg, ${colors[index]} 0%, ${colors[index]}dd 100%)`,
                 transform:
-                  index === currentIndex && isSpinning
+                  index === currentIndex &&
+                  (isSpinning || selectedPenaltyIndex === index)
                     ? "scale(1.1)"
                     : "scale(1)",
                 boxShadow:
-                  index === currentIndex && isSpinning
+                  index === currentIndex &&
+                  (isSpinning || selectedPenaltyIndex === index)
                     ? `0 10px 20px rgba(0,0,0,0.4), 0 0 30px ${colors[index]}40`
                     : `0 4px 6px rgba(0,0,0,0.2)`,
                 border:
-                  index === currentIndex && isSpinning
+                  index === currentIndex &&
+                  (isSpinning || selectedPenaltyIndex === index)
                     ? `2px solid ${colors[index]}`
                     : "none",
               }}
@@ -287,11 +296,9 @@ export default function PenaltyWheel({ onPenaltySelected }: PenaltyWheelProps) {
             className="p-3 rounded-lg mb-3 text-center text-white font-bold"
             style={{
               backgroundColor:
-                colors[
-                  defaultPenalties.findIndex(
-                    (p) => p.title === selectedPenalty.title
-                  )
-                ],
+                selectedPenaltyIndex !== null
+                  ? colors[selectedPenaltyIndex]
+                  : colors[0],
             }}
           >
             {selectedPenalty.title}
